@@ -1,0 +1,15 @@
+<form #login="ngForm" (ngsubmit)="onSubmit(login)">
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" name="email" required minlength="5" #email="ngModel" ngModel placeholder="Enter email" id="email">
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+          <span *ngIf="email.errors?.['required']">Please Enter Email.</span>
+          <span *ngIf="email.errors?.['minlength']">Please Enter At-Least 5 Character.</span>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" name="pwd" required #pwd="ngModel" ngModel placeholder="Enter password" id="pwd">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

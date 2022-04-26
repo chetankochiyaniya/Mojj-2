@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <h2 class="display-4 text-center">Register Here</h2>
+    <div class="text-center m-5">
+      <div class="alert alert-warning">
+        <b>You have entered below details</b>
+        <br>
+        <b>Email: </b>{{person.email}}
+        <br>
+      <b>Password: </b>#####
+        <br>
+        <b>Category: </b>{{person.cat}}
+      </div>
+    </div>
+<form *userForm = "ngForm" class="form-group" onsubmit="submit(userForm.values)">
+    <div>
+      <label for="exampleInputEmail1">Email address</label>
+      <input required type="email" class="form-control" id="email" name = "email" [(ngModel)] = "person.email" *emaill = "ngModel">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <span *ngIF="emaill.invalid || (emaill.touched && !emaill.dirty)">Please enter the email</span>
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="pswd" name = "password" [(ngModel)] = "person.pswd" ngForm *passwordd = "ngModel">
+      <span *ngIF="passwordd.invalid || (passwordd.touched && !passwordd.dirty)">Please enter the password</span>
+      <span *ngIF="passwordd.dirty && passwordd.length < 5">Password should be atleast 5 characters long"</span>
+    </div>
+    <div class="from-group">
+        <label for="Category">Category</label>
+        <select class="form-control mb-3" *name="cat">
+            <option *ngFor = "let cat of cats" [(ngModel)] = "person.cat">
+                {{cat}}
+            </option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

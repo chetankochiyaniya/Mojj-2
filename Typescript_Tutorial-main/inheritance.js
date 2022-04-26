@@ -1,0 +1,14 @@
+console.log("-------------------------------------");
+console.log("Single Inheritance");
+console.log("-------------------------------------");
+var dance = {};
+dance.numberofpeople = 5;
+dance.type = "Garba";
+console.log("Number of People: " + dance.numberofpeople);
+console.log("Type: " + dance.type);
+console.log("\n-------------------------------------");
+console.log("Multiple Inheritance");
+console.log("-------------------------------------");
+var studinfo = { name: "Vipul", rollno: 2 };
+console.log("Name: " + studinfo.name);
+console.log("Roll No.: " + studinfo.rollno);
